@@ -341,7 +341,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             liff.init({
-                liffId: ''
+                liffId: '2006587383-Kp2ja9qv'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -367,7 +367,7 @@
         let selectedirradiationsTime = 0; // 訪問回数で選択された時間
 
         let menuTimes = {
-            '美容鍼': 20
+            'ご面談': 0
         };
 
 
@@ -587,12 +587,6 @@
                 message: document.getElementById('message').value
             };
 
-            // フォームデータのチェック
-            if (!formData.name || !formData.phone || !formData.selectedSymptom) {
-                alert('お名前・電話番号・メニューすべてご記入ください。');
-                return;
-            }
-
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
@@ -628,7 +622,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbwCxnJaxGZ46c3TnnesuZcD_zuxuVoSHoDHo5MxkRzChcK5vZDwBs4HstzkXO-KLyuDYA/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbwkVyLAiENplfo7uOWAzHgTzFdZfERVYx2luDFEw9241DboECFZQlAvfmZwHGxczPEI/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
