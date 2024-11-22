@@ -281,6 +281,12 @@
         <div class="label">電話番号</div>
         <input type="tel" id="phone" placeholder="電話番号を入力してください">
 
+        <div class="label">初めてor会員</div>
+        <div class="visit-buttons">
+            <button type="button" id="firstVisit" onclick="selectVisit(this)">初めて</button>
+            <button type="button" id="repeatVisit" onclick="selectVisit(this)">会員</button>
+        </div>
+
         <div class="label">メニューをお選びください</div>
         <div id="treatment-text" style="margin-bottom: 20px;"></div>
         <div class="symptoms">
@@ -341,7 +347,7 @@
 
         document.addEventListener('DOMContentLoaded', function () {
             liff.init({
-                liffId: '2006587383-Kp2ja9qv'
+                liffId: '2005254357-zKma9BZk'
             }).then(() => {
                 console.log('LIFF初期化成功');
             }).catch((err) => {
@@ -590,7 +596,7 @@
             // LINEトークにメッセージを送信
             liff.sendMessages([{
                 type: 'text',
-                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\nメニュー：${formData.selectedSymptom}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
+                text: `【予約フォーム】\nお名前：${formData.name}\n電話番号：${formData.phone}\n初めてor会員：${formData.visitCount}\nメニュー：${formData.selectedSymptom}\n希望日時：\n ${formData.dates[0]}\nメッセージ：${formData.message}`
             }]).then(() => {
                 /* メッセージ送信成功時の処理 */
                 alert('当日キャンセルは無いようにお願いいたします。キャンセル料発生いたします。');
@@ -622,7 +628,7 @@
                 return;
             }
 
-            const url = 'https://script.google.com/macros/s/AKfycbwkVyLAiENplfo7uOWAzHgTzFdZfERVYx2luDFEw9241DboECFZQlAvfmZwHGxczPEI/exec' +
+            const url = 'https://script.google.com/macros/s/AKfycbyJjFF16v_y5qndj5gJN5CXJO_hCRMxjfO7ykSsRoCu89VxkUz6a_yqM3ynLc1dT1jL/exec' +
                 `?startTime=${startTime.toISOString()}&endTime=${endTime.toISOString()}`;
 
             try {
